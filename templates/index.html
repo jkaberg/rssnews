@@ -1,0 +1,22 @@
+<html>
+<head>
+    <title>No bullshit - just news</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>No bullshit - just news</h1>
+        <ul class="collapsible" data-collapsible="accordion">
+        {% for e in entries %}
+        <li>
+          <div class="collapsible-header"><i class="material-icons">info_outline</i><a href="{{ e.link }}">{{ e.title }}</a> {{ e.published|fixtime }}</div>
+          <div class="collapsible-body"><p>{{ e.summary_detail.value|safe }}</p></div>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+</body>
+</html>
